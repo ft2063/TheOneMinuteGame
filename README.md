@@ -42,23 +42,25 @@ Groups are sliding as follows:
       enemy[i].position.x = 0;
     }
   }
+  
 For each of the elements in the group their position is shifted a bit randomly to the right. If they exit the widow width restart at x = 0
 
 User control the players as follows: 
 
 		 player.velocity.x = (mouseX - player.position.x) * 0.2;
- player.velocity.y = (mouseY - player.position.y) * 0.2;
+ 		 player.velocity.y = (mouseY - player.position.y) * 0.2;
 
 The velocity is updated depending on the position of the mouse and the current position of the object, the factor diminishes this to have a delay. 
 
 Collision is handled as follows:
 
- enemy.collide(player, function(enemySprite, playerSprite) {
-    enemySprite.remove(); // remove the collided enemy sprite
-    lives -= 1;
-    console.log(lives);
-    
-  });
+		 enemy.collide(player, function(enemySprite, playerSprite) {
+		    enemySprite.remove(); // remove the collided enemy sprite
+		    lives -= 1;
+		    console.log(lives);
+
+		  });
+
 
 If there is a collision between the enemy and the player then return a function that removes that enemy sprite and decreases the user life. Life is console logged for debugging.
 Similarly, upon cloud collision, the size of the player sprite is increased that minimizing the chances of survival due to increased surface area. 
@@ -66,23 +68,23 @@ Similarly, upon cloud collision, the size of the player sprite is increased that
 
 Time is handled as follows:
 
-  let endTime = millis();
-    let duration = (endTime - startTime) / 1000; // calculate time elapsed in seconds
-  
-  if (lives > 0 && duration<60) {
-    text(lives, width - 30, 45);
-  } 
-   else if (lives > 0 && duration>=60) {
-    text("You Win!", width/2, height/2);
-    setTimeout(function() {
-    noLoop();
-  }, 1000); 
-  } 
-  
-  else {
-`		//code for game over
- }
-}
+		  let endTime = millis();
+		    let duration = (endTime - startTime) / 1000; // calculate time elapsed in seconds
+
+		  if (lives > 0 && duration<60) {
+		    text(lives, width - 30, 45);
+		  } 
+		   else if (lives > 0 && duration>=60) {
+		    text("You Win!", width/2, height/2);
+		    setTimeout(function() {
+		    noLoop();
+		  }, 1000); 
+		  } 
+
+		  else {
+		`		//code for game over
+		 }
+		}
 
 The function millis() takes track of the number of milliseconds elapsed. The duration is obtained by subtracting millis() from storytime. When this is greater than 60 the user wins provided lives are not exhausted.
 
