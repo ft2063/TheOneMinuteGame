@@ -1,5 +1,5 @@
 # The One Minute Game
-Link: https://editor.p5js.org/ft2063/sketches/tdpuJutuN
+Play at: https://editor.p5js.org/ft2063/sketches/tdpuJutuN
 
 # An overview of the code and how it works
 
